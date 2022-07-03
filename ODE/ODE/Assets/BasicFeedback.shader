@@ -81,8 +81,8 @@ Shader "Basic Feedback"
 		Pass
 		{
 
-		LOD 100
-		Cull off
+		//LOD 100
+		//Cull off
 
 			CGPROGRAM
 
@@ -91,7 +91,7 @@ Shader "Basic Feedback"
 			{
 				fragColor = tex2D(_BufferA, uv);
 
-				fragColor.a = 1.0 - fragColor.r;
+				//fragColor.a = 1.0 - fragColor.r;
 
 					
 			}
