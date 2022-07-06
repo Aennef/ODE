@@ -7,10 +7,6 @@ Shader "Basic Feedback"
         //_MainTex ("Base (RGB)", 2D) = "white" {}
         //_Color ("Color (RGBA)", Color) = (1, 1, 1, 1) // add _Color property
 		//_Transparency ("Transparency", Range(0.0, 0.5 )) = 0.25
-
-		//COL ("Color (RGBA)", Color) = (1,1,1,1)
-		//_alpha ("ALPHA", Float) = COL.a
-		//_alpha ("ALPHA", Float) = 0.5 
     }
 
 	SubShader
@@ -47,28 +43,11 @@ Shader "Basic Feedback"
 				float4 src = tex2D(_Video, tc); 
 				sum.rgb = lerp(sum.rbg, src.rgb, 0.03);
 				fragColor = sum;
-				//return sum;
 				
 			}
 			
 
 			ENDCG
-
-
-	//Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-
-	//Tags {"Queue"="Transparent" "RenderType"="Transparent"}
-
-	//ZWrite Off
-
-    //Cull Off
-
-	//Blend SrcAlpha OneMinusSrcAlpha		// Traditional transparency
-	//Blend OneMinusDstColor One			// Soft additive
-
-	//Blend One One							// Additive
-
-    //Blend One OneMinusSrcAlpha			// Premultiplied transparency
 
 
 		}
@@ -81,17 +60,12 @@ Shader "Basic Feedback"
 		Pass
 		{
 
-		//LOD 100
-		//Cull off
-
 			CGPROGRAM
 
 	
 			void PSMain (float4 vertex:SV_POSITION, float2 uv:TEXCOORD0, out float4 fragColor:SV_TARGET)
 			{
 				fragColor = tex2D(_BufferA, uv);
-
-				//fragColor.a = 1.0 - fragColor.r;
 
 					
 			}
